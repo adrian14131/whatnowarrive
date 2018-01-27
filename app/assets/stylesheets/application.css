@@ -1,0 +1,177 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+
+ *= require_tree .
+ *= require_self
+ *= require bootstrap
+ */
+
+div.ttspage{
+    min-width: 700px;
+    max-width: 1000px;
+    margin: auto;
+}
+/*
+div.header{
+    background: blanchedalmond;
+    height: 200px;
+}
+div.mainContent{
+    width: auto;
+    background: chartreuse;
+
+}
+div.content{
+    background: #730E15;
+    width: 660px;
+    padding: 10px;
+    float: left;
+}
+div.contentTop{
+    float: none;
+    background: #888888;
+    margin: auto;
+}
+div.contentMid{
+    float: none;
+    background: aquamarine;
+    margin: auto;
+}
+div.rightBar{
+    background: #D8D8D8;
+    min-width: 330px;
+    padding: 10px;
+    max-width: 100%;
+}*/
+div.divBeforeTable {
+    font-family: "Arial Black", Gadget, sans-serif;
+    border: 2px solid #000000;
+    width: 640px;
+    height: auto;
+    text-align: center;
+    border-collapse: collapse;
+    font-size: 15px;
+    font-weight: bold;
+}
+div.darkTable {
+    font-family: "Arial Black", Gadget, sans-serif;
+    border: 2px solid #000000;
+    background-color: #4A4A4A;
+    width: 640px;
+    height: 200px;
+    text-align: center;
+    border-collapse: collapse;
+
+}
+.divTable.darkTable .divTableCell, .divTable.darkTable .divTableHead {
+    border: 1px solid #4A4A4A;
+    padding: 3px 2px;
+}
+.divTable.darkTable .divTableBody .divTableCell {
+    font-size: 13px;
+    color: #E6E6E6;
+}
+.divTable.darkTable .divTableRow:nth-child(even) {
+    background: #888888;
+    text-align: center;
+}
+.divTable.darkTable .divTableHeading {
+    background: #000000;
+    border-bottom: 3px solid #000000;
+}
+.divTable.darkTable .divTableHeading .divTableHead {
+    font-size: 15px;
+    font-weight: bold;
+    color: #E6E6E6;
+    text-align: center;
+    border-left: 2px solid #4A4A4A;
+}
+.divTable.darkTable .divTableHeading .divTableHead:first-child {
+    border-left: none;
+}
+
+.darkTable .tableFootStyle {
+    font-size: 15px;
+}
+/* DivTable.com */
+.divBeforeTable{ display: table;
+}
+.divTable{ display: table; }
+.divTableRow { display: table-row; }
+.divTableHeading { display: table-header-group;}
+.divTableCell, .divTableHead { display: table-cell;}
+.divTableHeading { display: table-header-group;}
+.divTableFoot { display: table-footer-group;}
+.divTableBody { display: table-row-group;}
+
+
+
+
+/*label.custom-select {
+    position: relative;
+    display: inline-block;
+}
+
+.custom-select select {
+    display: inline-block;
+    border: 2px solid #888888;
+    padding: 4px 3px 3px 5px;
+    margin: 0;
+    font: inherit;
+    outline:none; /* remove focus ring from Webkit */
+    /*line-height: 1.2;
+    background: #f8f8f8;
+
+    -webkit-appearance:none; /* remove the strong OSX influence from Webkit */
+
+    /*-webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+}
+
+/* for Webkit's CSS-only solution */
+/*@media screen and (-webkit-min-device-pixel-ratio:0) {
+    .custom-select select {
+        padding-right:30px;
+    }
+}
+
+/* Since we removed the default focus styles, we have to add our own */
+/*.custom-select select:focus {
+    -webkit-box-shadow: 0 0 3px 1px #4A4A4A;
+    -moz-box-shadow: 0 0 3px 1px #4A4A4A;
+    box-shadow: 0 0 3px 1px #4A4A4A;
+}
+
+/* Select arrow styling */
+/*.custom-select:after {
+    content: "▼";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    font-size: 60%;
+    line-height: 30px;
+    padding: 0 7px;
+    background: #888888;
+    color: white;
+
+    pointer-events:none;
+
+    -webkit-border-radius: 0 6px 6px 0;
+    -moz-border-radius: 0 6px 6px 0;
+    border-radius: 0 6px 6px 0;
+}
+
+.no-pointer-events .custom-select:after {
+    content: none;
+}*/
+

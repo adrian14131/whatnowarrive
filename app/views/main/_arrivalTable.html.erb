@@ -1,0 +1,9 @@
+<% if @shortName&&@shortName!=""
+     if @size > 0 %>
+    <%= render partial: 'arrivalNotEmptyTable' %>
+  <% else %>
+    <%= render partial: 'arrivalEmptyTable' %>
+  <% end %>
+<% else %>
+  <%= render partial: 'arrivalEmptyTable' %>
+<% end %>

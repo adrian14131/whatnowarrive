@@ -1,0 +1,50 @@
+<div class="divBeforeTable">
+  Przystanek: <%= getStopsList[@shortName]%>
+</div>
+<div class="divTable darkTable">
+  <div class="divTableHeading">
+    <div class="divTableRow">
+      <div class="divTableHead" style="width: 25%">Linia:</div>
+      <div class="divTableHead" style="width: 50%">Kierunek:</div>
+      <div class="divTableHead">Odjazd:</div>
+    </div>
+  </div>
+  <div class="divTableBody">
+    <%i=0
+      while i<@size do %>
+      <div class="divTableRow">
+        <div class="divTableCell"><%= @arrivalList[i]["patternText"] %></div>
+        <div class="divTableCell"><%= @arrivalList[i]["direction"] %></div>
+        <div class="divTableCell">
+          <% time = Time.new %>
+          <%if @arrivalList[i]["mixedTime"]=="0 Min"
+              if (time.sec%2==0) %>
+              &nbsp
+              <%else%>
+              >>>>>
+              <%end%>
+          <% else %>
+            <%= @arrivalList[i]["mixedTime"] %>
+            <% end %>
+        </div>
+      </div>
+      <% i+=1%>
+    <% end %>
+    <% while i<getSizeArrivalTable do %>
+      <div class="divTableRow">
+        <div class="divTableCell">&nbsp</div>
+        <div class="divTableCell">&nbsp</div>
+        <div class="divTableCell">&nbsp</div>
+      </div>
+      <% i+=1%>
+    <% end %>
+    <% time = Time.new %>
+    <div class="divTableRow">
+      <div class="divTableCell"></div>
+      <div class="divTableCell"></div>
+      <div class="divTableCell"><%= time.strftime("%T") %></div>
+
+    </div>
+  </div>
+</div>
+

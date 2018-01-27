@@ -1,0 +1,66 @@
+
+<div class="ttspage col-auto bg-secondary">
+  <div class="header text-white ">
+    <h1>Co pojedzie?</h1>
+  </div>
+  <div class="row">
+    <div class="col-xl-auto bg-light" style="padding: 5px">
+      <div class="row">
+        <div class="col-xl-auto form-group form-inline" style="margin: auto">
+          <% if getStopsList.size > 1 %>
+          <%= form_tag("/", method: "get") do %>
+            Wybierz przystanek:
+            <%= select_tag("stop", options_from_collection_for_select(getStopsList, :first, :last, params[:stop]), :class => "form-control", :style=>"margin: 0px 5px 5px 5px", :onchange => "this.form.submit();") %>
+          <% end %>
+          <%= link_to "Ulubiony", "add/"+@shortName, :class=>"btn bg-secondary text-white", :style=>"margin: 0px 5px 5px 5px", :role => "button"%>
+            <% end %>
+        </div>
+      </div>
+
+
+      <div class="row">
+        <div class="col-xl-auto" id="toReload">
+          <%= render partial: 'arrivalTable' %>
+        </div>
+      </div>
+    </div>
+    <div class="col bg-secondary text-white">
+      <%= render partial: 'favouriteStops' %>
+    </div>
+  </div>
+</div>
+
+
+
+<script>
+  setInterval(function () {
+      var divElement = document.getElementById("toReload");
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 200) {
+
+              divElement.innerHTML = this.responseText;
+          }
+      };
+      if(getParametrUrlValue("stop")!=""){
+          xhttp.open("GET", "refresh_table?st="+getParametrUrlValue("stop"), true);
+      }
+      else{
+          xhttp.open("GET", "refresh_table", true);
+      }
+
+
+      xhttp.send();
+
+  },1000);
+  function getParametrUrlValue(parameter) {
+    var gets = {}
+    if (location.search) location.search.substr(1).split("&").forEach(function (item) {
+        var s = item.split("="),
+            k = s[0],
+            v = s[1]&&decodeURIComponent(s[1]);
+        (gets[k] = gets[k] || []).push(v)
+    })
+    return gets[parameter];
+  }
+</script>

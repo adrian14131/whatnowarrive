@@ -1,0 +1,51 @@
+
+<div class="divBeforeTable">
+  <% if @shortName && @shortName!="" && @shortName!="undefined"%>
+    Przystanek: <%= getStopsList[@shortName]%>
+  <% else %>
+  Wybierz przystanek:
+  <% end %>
+</div>
+<div class="divTable darkTable">
+  <div class="divTableHeading">
+    <div class="divTableRow">
+      <div class="divTableHead" style="width: 25%">Linia:</div>
+      <div class="divTableHead" style="width: 50%">Kierunek:</div>
+      <div class="divTableHead">Odjazd:</div>
+    </div>
+  </div>
+  <div class="divTableBody">
+      <div class="divTableRow">
+        <div class="divTableCell"></div>
+        <div class="divTableCell">&nbsp</div>
+        <div class="divTableCell"></div>
+      </div>
+      <div class="divTableRow">
+        <div class="divTableCell"></div>
+        <div class="divTableCell">Brak odjazdów</div>
+        <div class="divTableCell"></div>
+      </div>
+      <div class="divTableRow">
+        <div class="divTableCell"></div>
+        <div class="divTableCell">wybierz inny przystanek</div>
+        <div class="divTableCell"></div>
+      </div>
+      <% i=3 %>
+      <% while i<getSizeArrivalTable do %>
+        <div class="divTableRow">
+          <div class="divTableCell">&nbsp</div>
+          <div class="divTableCell">&nbsp</div>
+          <div class="divTableCell">&nbsp</div>
+        </div>
+        <% i+=1%>
+      <% end %>
+      <% time = Time.new %>
+      <div class="divTableRow">
+        <div class="divTableCell"></div>
+        <div class="divTableCell"></div>
+        <div class="divTableCell">
+          <%= time.strftime("%T") %></div>
+
+      </div>
+  </div>
+</div>

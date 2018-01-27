@@ -1,0 +1,33 @@
+<% stopsFav = getFavouriteStops %>
+<% i = 0 %>
+<% maksFav = getMaksFavStop %>
+<h3>Ulubione przystanki:</h3>
+<% if stopsFav.size>0
+     if stopsFav[0]=="%5B%5D" || stopsFav[0] == "[]" || stopsFav[0]==[]
+       i+=1
+       maksFav+=1
+     end
+    end %>
+<% if getStopsList.size > 1 %>
+  <% while i<maksFav&&i<stopsFav.size %>
+    <div><%= link_to getStopsList[stopsFav[i]], "?utf8=%E2%9C%93&stop="+stopsFav[i].to_s, :class => "text-white" %>
+      <% if(params[:stop]&&params[:stop]!="") %>
+        <%= link_to 'Usuń', "del/"+stopsFav[i].to_s+"/"+params[:stop], :class => "badge bg-light text-dark" %></div>
+      <% else %>
+        <%= link_to "Usuń", "del/"+stopsFav[i].to_s, :class => "badge bg-light text-dark" %></div>
+      <% end %>
+
+
+  <% i+=1 %>
+  <% end %>
+<% end %>
+
+<div>
+  <h3>Ustawienia:</h3>
+  <%= form_tag("change", method: "get", ) do %>
+    <% sizeArray = Array(getMinPossibleSize..getMaksPossibleSize) %>
+    <label for="size">Wybierz ilość wierszy tablicy odjazdów:</label>
+    <%= hidden_field_tag("backStop", @shortName) %>
+    <%= select_tag("size", options_for_select(sizeArray, getSizeArrivalTable), :class => "form-control", :onchange => "this.form.submit();") %>
+  <% end %>
+</div>
